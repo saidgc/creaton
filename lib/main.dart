@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: Center(child: Text("Hola"),),
+        body: Center(child: Text("Chulada"),),
       ),
     );
   }

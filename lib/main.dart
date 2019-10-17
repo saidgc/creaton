@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'menu.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: Center(child: Text("Hola"),),
+        body: Menu()
       ),
     );
   }

@@ -13,6 +13,9 @@ class Menu extends StatelessWidget {
         width: 200,
         child: Center(child: Text(txt, style: TextStyle(fontSize: 20),),),
       ),
+      onTap: (){
+        print("Boton "+ txt);
+      },
     );
   }
 

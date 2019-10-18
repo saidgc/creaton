@@ -88,7 +88,7 @@
       <br>
       <!--Impact Message-->
       <div>
-        <h2>¿Cómo se ejerce el presupuesto para satisfacer tus derechos?</h2>
+        <h2>¿Cómo se atienden los derechos de los ciudadanos?</h2>
       </div>
 
       <!-- Icon Divider -->
@@ -142,10 +142,10 @@
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Derecho a Seguridad Social</a>
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Derecho a Cultura</a>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/socialCare.png" alt="">
+            <img class="img-fluid" src="img/portfolio/culture.png" alt="">
           </div>
         </div>
 
@@ -338,7 +338,7 @@
     </div>
   </div>
 
-  <!-- Portfolio Modal 4 (Seguro Social)-->
+  <!-- Portfolio Modal 4 (Cultura)-->
   <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog"
     aria-labelledby="portfolioModal4Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
@@ -353,8 +353,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Inversion en el Derecho a Seguridad
-                  Social</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Inversion en Cultura</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -363,7 +362,7 @@
 
               <!--Chart-->
               <div class="row">
-                <div id="seguridadSoc"></div>
+                <div id="cultura"></div>
 
                 <!--<button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
@@ -518,33 +517,32 @@
 
     function drawLineChart() {
       $.ajax({
-        url: "./data/data1.json",
+        url: "./data/data2.json",
         dataType: "json",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          var arrSales = [['Month', 'Sales Figure', 'Datos']];    // Define an array and assign columns for the chart.
+          var arrSales = [['', 'Aprobado', 'Pagado']];    // Define an array and assign columns for the chart.
 
           // Loop through each data and populate the array.
           $.each(data, function (index, value) {
-            arrSales.push([value.Month, value.Sales_Figure, value.Perc]);
+            arrSales.push([value.idPartida, value.aprobado, value.pagado]);
           });
 
           // Set chart Options.
           var options = {
-            title: 'Inversion salud',
+            title: 'Inversion en salud',
             curveType: 'function',
-            legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
+            legend: { position: 'bottom', textStyle: { color: '#132048', fontSize: 14 } },
             width: 900,
-            height: 500,
-            pieHole: 0.4   // You can position the legend on 'top' or at the 'bottom'.
+            height: 500 // You can position the legend on 'top' or at the 'bottom'.
           };
 
           // Create DataTable and add the array to it.
           var figures = google.visualization.arrayToDataTable(arrSales)
 
           // Define the chart type (LineChart) and the container (a DIV in our case).
-          var chart = new google.visualization.PieChart(document.getElementById('salud'));
+          var chart = new google.visualization.AreaChart(document.getElementById('salud'));
           chart.draw(figures, options);      // Draw the chart with Options.
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -597,7 +595,7 @@
     }
   </script>
 
-  <!--Social Assurance Graph-->
+  <!--Culture Graph-->
   <script>
     // Visualization API with the 'corechart' package.
     google.charts.load('visualization', { packages: ['corechart'] });
@@ -605,21 +603,21 @@
 
     function drawLineChart() {
       $.ajax({
-        url: "./data/data1.json",
+        url: "./data/data4.json",
         dataType: "json",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          var arrSales = [['Month', 'Sales Figure', 'Datos']];    // Define an array and assign columns for the chart.
+          var arrSales = [['Month', 'Year', 'Amount']];    // Define an array and assign columns for the chart.
 
           // Loop through each data and populate the array.
           $.each(data, function (index, value) {
-            arrSales.push([value.Month, value.Sales_Figure, value.Perc]);
+            arrSales.push([value.Month, value.Year, value.Amount]);
           });
 
           // Set chart Options.
           var options = {
-            title: 'Inversion seguridad social',
+            title: 'Inversion en cultura',
             curveType: 'function',
             legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
             width: 900,
@@ -630,7 +628,7 @@
           var figures = google.visualization.arrayToDataTable(arrSales)
 
           // Define the chart type (LineChart) and the container (a DIV in our case).
-          var chart = new google.visualization.ComboChart(document.getElementById('seguridadSoc'));
+          var chart = new google.visualization.PieChart(document.getElementById('cultura'));
           chart.draw(figures, options);      // Draw the chart with Options.
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -691,16 +689,16 @@
 
     function drawLineChart() {
       $.ajax({
-        url: "./data/data1.json",
+        url: "./data/data6.json",
         dataType: "json",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          var arrSales = [['Month', 'Sales Figure', 'Datos']];    // Define an array and assign columns for the chart.
+          var arrSales = [['', 'Aprobado', 'Pagado']];    // Define an array and assign columns for the chart.
 
           // Loop through each data and populate the array.
           $.each(data, function (index, value) {
-            arrSales.push([value.Month, value.Sales_Figure, value.Perc]);
+            arrSales.push([value.idPartida, value.aprobado, value.pagado]);
           });
 
           // Set chart Options.
@@ -716,7 +714,7 @@
           var figures = google.visualization.arrayToDataTable(arrSales)
 
           // Define the chart type (LineChart) and the container (a DIV in our case).
-          var chart = new google.visualization.ScatterChart(document.getElementById('transito'));
+          var chart = new google.visualization.AreaChart(document.getElementById('transito'));
           chart.draw(figures, options);      // Draw the chart with Options.
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

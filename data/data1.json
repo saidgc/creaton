@@ -1,16 +1,16 @@
 [
     {
-        "Month": "Isma",
+        "Month": "Jan",
         "Sales_Figure": 21,
         "Perc": 5
     },
     {
-        "Month": "Said",
+        "Month": "Feb",
         "Sales_Figure": 32,
         "Perc": 15
     },
     {
-        "Month": "Oliver",
+        "Month": "Mar",
         "Sales_Figure": 19,
         "Perc": 11
     },

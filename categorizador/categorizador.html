@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es,en,ge">
 
 <head>
 
@@ -22,6 +22,7 @@
   <!-- Chart scripting -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
 </head>
 
@@ -53,7 +54,7 @@
 
         
       <!-- Portfolio Grid Items -->
-      <div class="row">
+      <div id="row" class="row">
 
             <!-- Portfolio Item 1 -->
             <div class="col-md-6 col-lg-4">
@@ -80,7 +81,7 @@
                   <div class="portfolio-item-caption-content text-center text-white">
                         <label>Edad</label>
                         <input class="form-control" id="edad" type="number" placeholder="Edad" 
-                        required="required" min="18" max="100" data-validation-required-message="Please enter your name.">
+                        required="required" min="5" max="100" data-validation-required-message="Please enter your name.">
                   </div>
                 </div>
               </div>
@@ -92,7 +93,8 @@
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                   <div class="portfolio-item-caption-content text-center text-white">
                         <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-xl" onclick="elPapanatas()">Enviar</button>
+                            <a href="#row">
+                                <button type="submit" class="btn btn-primary btn-xl" onclick="elPapanatas()">Enviar</button></a>
                         </div>
                   </div>
                 </div>
@@ -196,6 +198,9 @@
                                     <option value="Chiconcuautla">
                                     <option value="Chichiquila">
                                     <option value="Chietla">
+                                    <option value="Cholula">
+                                    <option value="Puebla">
+                                    
 
                                     </datalist>
                                         </div>
@@ -217,10 +222,6 @@
   <!-- Portfolio Section -->
   <section class="page-section portfolio" id="portfolio">
     <div class="container">
-
-      <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Datos y Derechos</h2>
-      <br>
       <!--Impact Message-->
       <div>
         <h2>¿Cómo se ejerce el presupuesto para satisfacer tus derechos?</h2>
@@ -244,7 +245,7 @@
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Educacion</a>
               </div>
             </div>
-            <img class="img-fluid " src="./../img/portfolio/education.png" alt="">
+            <div id="educacion" class="img-fluid"></div>
           </div>
         </div>
 
@@ -256,7 +257,7 @@
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Salud</a>
               </div>
             </div>
-            <img class="img-fluid" src="./../img/portfolio/health.png" alt="">
+            <div id="salud" class="img-fluid"></div>
           </div>
         </div>
 
@@ -268,7 +269,7 @@
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">S.S.</a>
               </div>
             </div>
-            <img class="img-fluid" src="./../img/portfolio/job.png" alt="">
+            <div id="trabajo" class="img-fluid"></div>
           </div>
         </div>
 
@@ -280,7 +281,7 @@
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">S.</a>
               </div>
             </div>
-            <img class="img-fluid" src="./../img/portfolio/socialCare.png" alt="">
+            <div id="cultura" class="img-fluid"></div>
           </div>
         </div>
 
@@ -292,7 +293,7 @@
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">J</a>
               </div>
             </div>
-            <img class="img-fluid" src="./../img/portfolio/police.png" alt="">
+            <div id="seguridad" class="img-fluid"></div>
           </div>
         </div>
 
@@ -304,7 +305,7 @@
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">C</a>
               </div>
             </div>
-            <img class="img-fluid" src="./../img/portfolio/bike.png" alt="">
+            <div id="transito" class="img-fluid"></div>
             
           </div>
         </div>
@@ -492,6 +493,7 @@
 
     function elPapanatas(){
         // debugger;
+        document.getElementById("salud").scrollIntoView();
         console.log("Que fue lo que paso: ");
         for(var i = 1; i < 7; i++){
         divsToHide[i].style.visibility = "visible"; 
@@ -547,6 +549,287 @@
 
 
 </script>
+
+
+
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="./../vendor/jquery/jquery.min.js"></script>
+<script src="./../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="./../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="./../js/jqBootstrapValidation.js"></script>
+<script src="./../js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="./../js/freelancer.min.js"></script>
+
+<!--Education Graph-->
+<script>
+  // Visualization API with the 'corechart' package.
+  google.charts.load('visualization', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawLineChart);
+
+  function drawLineChart() {
+    $.ajax({
+      url: "./../data/data1.json",
+      dataType: "json",
+      type: "GET",
+      contentType: "application/json; charset=utf-8",
+      success: function (data) {
+        var arrSales = [['Anio', 'anio', 'Pagado']];    // Define an array and assign columns for the chart.
+
+        // Loop through each data and populate the array.
+        $.each(data, function (index, value) {
+          arrSales.push([value.idPartida, value.pagado, value.aprobado]);
+        });
+
+        // Set chart Options.
+        var options = {
+          title: 'Inversion educacion',
+          curveType: 'function',
+          legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 12 } },
+          fontSize: 8,
+          width: 400,
+          height: 500   // You can position the legend on 'top' or at the 'bottom'.
+        };
+
+        // Create DataTable and add the array to it.
+        var figures = google.visualization.arrayToDataTable(arrSales)
+
+        // Define the chart type (LineChart) and the container (a DIV in our case).
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('educacion'));
+        chart.draw(figures, options);      // Draw the chart with Options.
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Got an Error');
+      }
+    });
+  }
+</script>
+
+<!--Health Graph-->
+<script>
+  // Visualization API with the 'corechart' package.
+  google.charts.load('visualization', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawLineChart);
+
+  function drawLineChart() {
+    $.ajax({
+      url: "./../data/data2.json",
+      dataType: "json",
+      type: "GET",
+      contentType: "application/json; charset=utf-8",
+      success: function (data) {
+        var arrSales = [['', 'Aprobado', 'Pagado']];    // Define an array and assign columns for the chart.
+
+        // Loop through each data and populate the array.
+        $.each(data, function (index, value) {
+          arrSales.push([value.idPartida, value.aprobado, value.pagado]);
+        });
+
+        // Set chart Options.
+        var options = {
+          title: 'Inversion en salud',
+          curveType: 'function',
+          legend: { position: 'bottom', textStyle: { color: '#132048', fontSize: 14 } },
+          width: 400,
+          height: 500 // You can position the legend on 'top' or at the 'bottom'.
+        };
+
+        // Create DataTable and add the array to it.
+        var figures = google.visualization.arrayToDataTable(arrSales)
+
+        // Define the chart type (LineChart) and the container (a DIV in our case).
+        var chart = new google.visualization.AreaChart(document.getElementById('salud'));
+        chart.draw(figures, options);      // Draw the chart with Options.
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Got an Error');
+      }
+    });
+  }
+</script>
+
+<!--Job Graph-->
+<script>
+  // Visualization API with the 'corechart' package.
+  google.charts.load('visualization', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawLineChart);
+
+  function drawLineChart() {
+    $.ajax({
+      url: "./../data/data3.json",
+      dataType: "json",
+      type: "GET",
+      contentType: "application/json; charset=utf-8",
+      success: function (data) {
+        var arrSales = [['Month', 'Year', 'Amount']];    // Define an array and assign columns for the chart.
+
+        // Loop through each data and populate the array.
+        $.each(data, function (index, value) {
+          arrSales.push([value.Month, value.Year, value.Amount]);
+        });
+
+        // Set chart Options.
+        var options = {
+          title: 'Tasas de empleo',
+          curveType: 'function',
+          legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
+          width: 400,
+          height: 500   // You can position the legend on 'top' or at the 'bottom'.
+        };
+
+        // Create DataTable and add the array to it.
+        var figures = google.visualization.arrayToDataTable(arrSales)
+
+        // Define the chart type (LineChart) and the container (a DIV in our case).
+        var chart = new google.visualization.PieChart(document.getElementById('trabajo'));
+        chart.draw(figures, options);      // Draw the chart with Options.
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Got an Error');
+      }
+    });
+  }
+</script>
+
+<!--Culture Graph-->
+<script>
+  // Visualization API with the 'corechart' package.
+  google.charts.load('visualization', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawLineChart);
+
+  function drawLineChart() {
+    $.ajax({
+      url: "./../data/data4.json",
+      dataType: "json",
+      type: "GET",
+      contentType: "application/json; charset=utf-8",
+      success: function (data) {
+        var arrSales = [['Month', 'Year', 'Amount']];    // Define an array and assign columns for the chart.
+
+        // Loop through each data and populate the array.
+        $.each(data, function (index, value) {
+          arrSales.push([value.Month, value.Year, value.Amount]);
+        });
+
+        // Set chart Options.
+        var options = {
+          title: 'Inversion en cultura',
+          curveType: 'function',
+          legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
+          width: 400,
+          height: 500   // You can position the legend on 'top' or at the 'bottom'.
+        };
+
+        // Create DataTable and add the array to it.
+        var figures = google.visualization.arrayToDataTable(arrSales)
+
+        // Define the chart type (LineChart) and the container (a DIV in our case).
+        var chart = new google.visualization.PieChart(document.getElementById('cultura'));
+        chart.draw(figures, options);      // Draw the chart with Options.
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Got an Error');
+      }
+    });
+  }
+</script>
+
+<!--Security Graph-->
+<script>
+  // Visualization API with the 'corechart' package.
+  google.charts.load('visualization', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawLineChart);
+
+  function drawLineChart() {
+    $.ajax({
+      url: "./../data/data1.json",
+      dataType: "json",
+      type: "GET",
+      contentType: "application/json; charset=utf-8",
+      success: function (data) {
+        var arrSales = [['Anio', 'anio', 'Gastado']];    // Define an array and assign columns for the chart.
+
+        // Loop through each data and populate the array.
+        $.each(data, function (index, value) {
+          arrSales.push([value.idPartida, value.pagado, value.aprobado]);
+        });
+
+        // Set chart Options.
+        var options = {
+          title: 'Inversion seguridad',
+          curveType: 'function',
+          legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
+          width: 400,
+          height: 500  // You can position the legend on 'top' or at the 'bottom'.
+        };
+
+        // Create DataTable and add the array to it.
+        var figures = google.visualization.arrayToDataTable(arrSales)
+
+        // Define the chart type (LineChart) and the container (a DIV in our case).
+        var chart = new google.visualization.BarChart(document.getElementById('seguridad'));
+        chart.draw(figures, options);      // Draw the chart with Options.
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Got an Error');
+      }
+    });
+  }
+</script>
+
+<!--Transit Graph-->
+<script>
+  // Visualization API with the 'corechart' package.
+  google.charts.load('visualization', { packages: ['corechart'] });
+  google.charts.setOnLoadCallback(drawLineChart);
+
+  function drawLineChart() {
+    $.ajax({
+      url: "./../data/data6.json",
+      dataType: "json",
+      type: "GET",
+      contentType: "application/json; charset=utf-8",
+      success: function (data) {
+        var arrSales = [['', 'Aprobado', 'Pagado']];    // Define an array and assign columns for the chart.
+
+        // Loop through each data and populate the array.
+        $.each(data, function (index, value) {
+          arrSales.push([value.idPartida, value.aprobado, value.pagado]);
+        });
+
+        // Set chart Options.
+        var options = {
+          title: 'Inversion libre transito',
+          curveType: 'function',
+          legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
+          width: 400,
+          height: 500   // You can position the legend on 'top' or at the 'bottom'.
+        };
+
+        // Create DataTable and add the array to it.
+        var figures = google.visualization.arrayToDataTable(arrSales)
+
+        // Define the chart type (LineChart) and the container (a DIV in our case).
+        var chart = new google.visualization.AreaChart(document.getElementById('transito'));
+        chart.draw(figures, options);      // Draw the chart with Options.
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Got an Error');
+      }
+    });
+  }
+</script>
+
+
+
+
 
 </body>
 

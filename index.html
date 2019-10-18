@@ -88,7 +88,7 @@
       <br>
       <!--Impact Message-->
       <div>
-        <h2>¿Cómo se ejerce el presupuesto para satisfacer tus derechos?</h2>
+        <h2>¿Cómo se atienden los derechos de los ciudadanos?</h2>
       </div>
 
       <!-- Icon Divider -->
@@ -480,19 +480,20 @@
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          var arrSales = [['Month', 'Sales Figure', 'Datos']];    // Define an array and assign columns for the chart.
+          var arrSales = [['Anio', 'anio', 'Pagado']];    // Define an array and assign columns for the chart.
 
           // Loop through each data and populate the array.
           $.each(data, function (index, value) {
-            arrSales.push([value.Month, value.Sales_Figure, value.Perc]);
+            arrSales.push([value.idPartida, value.pagado, value.aprobado]);
           });
 
           // Set chart Options.
           var options = {
             title: 'Inversion educacion',
             curveType: 'function',
-            legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
-            width: 900,
+            legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 12 } },
+            fontSize: 8,
+            width: 1100,
             height: 500   // You can position the legend on 'top' or at the 'bottom'.
           };
 
@@ -561,21 +562,21 @@
 
     function drawLineChart() {
       $.ajax({
-        url: "./data/data1.json",
+        url: "./data/data3.json",
         dataType: "json",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          var arrSales = [['Month', 'Sales Figure', 'Datos']];    // Define an array and assign columns for the chart.
+          var arrSales = [['Month', 'Year', 'Amount']];    // Define an array and assign columns for the chart.
 
           // Loop through each data and populate the array.
           $.each(data, function (index, value) {
-            arrSales.push([value.Month, value.Sales_Figure, value.Perc]);
+            arrSales.push([value.Month, value.Year, value.Amount]);
           });
 
           // Set chart Options.
           var options = {
-            title: 'Inversion trabajo',
+            title: 'Tasas de empleo',
             curveType: 'function',
             legend: { position: 'bottom', textStyle: { color: '#555', fontSize: 14 } },
             width: 900,
@@ -586,7 +587,7 @@
           var figures = google.visualization.arrayToDataTable(arrSales)
 
           // Define the chart type (LineChart) and the container (a DIV in our case).
-          var chart = new google.visualization.Histogram(document.getElementById('trabajo'));
+          var chart = new google.visualization.PieChart(document.getElementById('trabajo'));
           chart.draw(figures, options);      // Draw the chart with Options.
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -652,11 +653,11 @@
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          var arrSales = [['Month', 'Sales Figure', 'Datos']];    // Define an array and assign columns for the chart.
+          var arrSales = [['Anio', 'anio', 'Gastado']];    // Define an array and assign columns for the chart.
 
           // Loop through each data and populate the array.
           $.each(data, function (index, value) {
-            arrSales.push([value.Month, value.Sales_Figure, value.Perc]);
+            arrSales.push([value.idPartida, value.pagado, value.aprobado]);
           });
 
           // Set chart Options.
@@ -672,7 +673,7 @@
           var figures = google.visualization.arrayToDataTable(arrSales)
 
           // Define the chart type (LineChart) and the container (a DIV in our case).
-          var chart = new google.visualization.AreaChart(document.getElementById('seguridad'));
+          var chart = new google.visualization.BarChart(document.getElementById('seguridad'));
           chart.draw(figures, options);      // Draw the chart with Options.
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

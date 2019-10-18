@@ -29,28 +29,23 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-    <img class="img-fluid " src="../img/portfolio/logo2.png" alt="" width="130" height="85">
+    <a href="../index.html">
+    <img class="img-fluid " src="../img/portfolio/logo2.png" alt="" width="130" height="85"></a>
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Auditoria del Estado</a>
+      <a class="navbar-brand js-scroll-trigger" href="../index.html">Auditoria del Estado</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
         type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Realizar busqueda</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+
   </nav>
 
   <!-- Masthead -->
   <header style="padding: 0.75rem 1.25rem !important;" class="card-header bg-primary text-white text-center">
-        <h1 style="font-size: 2rem !important; padding-top: 7.5rem !important; padding-right: 670px !important; margin-bottom: 600px;  margin-left: 0px !important;"class="masthead-heading text-uppercase mb-0">Realiza tus preguntas</h1>
+        <br>    
+    <h1 style="font-size: 2rem !important; padding-top: 7.5rem !important; padding-right: 670px !important; margin-bottom: 600px;  margin-left: 0px !important;"class="masthead-heading text-uppercase mb-0">Realiza tus preguntas</h1>
     <div class="container d-flex align-items-center flex-column">
 
 
@@ -66,8 +61,13 @@
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                   <div class="portfolio-item-caption-content text-center text-white">
                         <label>Genero</label>
-                <input class="form-control" id="genero" type="text" placeholder="Genero" 
+                <input class="form-control" list="generos" id="genero" type="text" placeholder="Genero" 
                 required="required" data-validation-required-message="Please enter your name.">
+                    <datalist id="generos">
+                            <option value="Masculino">
+                            <option value="Femenino">
+                            <option value="Otro">
+                    </datalist>
                   </div>
                 </div>
               </div>
@@ -79,8 +79,8 @@
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                   <div class="portfolio-item-caption-content text-center text-white">
                         <label>Edad</label>
-                        <input class="form-control" id="edad" type="text" placeholder="Edad" 
-                        required="required" data-validation-required-message="Please enter your name.">
+                        <input class="form-control" id="edad" type="number" placeholder="Edad" 
+                        required="required" min="18" max="100" data-validation-required-message="Please enter your name.">
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                   <div class="portfolio-item-caption-content text-center text-white">
                         <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-xl" onclick="elPapanatas()">Send</button>
+                                <button type="submit" class="btn btn-primary btn-xl" onclick="elPapanatas()">Enviar</button>
                         </div>
                   </div>
                 </div>
@@ -105,8 +105,15 @@
                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                   <div class="portfolio-item-caption-content text-center text-white">
                         <label>Ocupacion</label>
-                        <input class="form-control" id="ocupacion" type="text" placeholder="Ocupacion" 
+                        <input list="ocupaciones" class="form-control" id="ocupacion" type="text" placeholder="Ocupacion" 
                         required="required" data-validation-required-message="Please enter your name.">
+                        <datalist id="ocupaciones">
+                                <option value="Estudiante">
+                                <option value="Maestro">
+                                <option value="Jubilado">
+                                <option value="Obrero">
+                                <option value="Otro">
+                        </datalist>
                   </div>
                 </div>
               </div>
@@ -118,9 +125,80 @@
                   <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                     <div class="portfolio-item-caption-content text-center text-white">
                             <label>Municipio</label>
-                            <input class="form-control" id="municipio" type="text" placeholder="Municipio"
+                            <input list="municipios" class="form-control" id="municipio" type="text" placeholder="Municipio"
                              required="required" data-validation-required-message="Please enter your name.">
-                    </div>
+                             <datalist id="municipios">
+                                    <option value="Acajete">
+                                    <option value="Acateno">
+                                    <option value="Acatlán">
+                                    <option value="Acatzingo">
+                                    <option value="Acteopan">
+
+                                    <option value="Ahuacatlán">
+                                    <option value="Ahuatlán">
+                                    <option value="Ahuazotepec">
+                                    <option value="Ahuehuetitla">
+                                    <option value="Ajalpan">
+
+                                    
+                                    <option value="Acteopan">
+                                    <option value="Ahuacatlán">
+                                    <option value="Ahuatlán">
+                                    <option value="Ahuazotepec">
+                                    <option value="Ahuehuetitla">
+
+                                    <option value="Ajalpan">
+                                    <option value="Albino Zertuche">
+                                    <option value="Aljojuca">
+                                    <option value="Altepexi">
+                                    <option value="Amixtlán">
+                                    
+                                    
+                                    <option value="Amozoc">
+                                    <option value="Aquixtla">
+                                    <option value="Atempan">
+                                    <option value="Atlixco">
+                                    <option value="Atoyatempan">
+
+                                    <option value="Atzala">
+                                    <option value="Atzitzihuacán">
+                                    <option value="Atzitzintla">
+                                    <option value="Axutla">
+                                    <option value="Ayotoxco de Guerrero">
+                                    
+                                    
+                                    <option value="Calpan">
+                                    <option value="Caltepec">
+                                    <option value="Camocuautla">
+                                    <option value="Caxhuacán">
+                                    <option value="Coatepec">
+                            
+                                    <option value="Cohetzala">
+                                    <option value="Cohuecan">
+                                    <option value="Coronango">
+                                    <option value="Coxcatlán">
+                                    <option value="Coyomeapan">
+
+                                    <option value="Coyotepec">
+                                    <option value="Cuapiaxtla de Madero">
+                                    <option value="Cuautempan">
+                                    <option value="Cuautinchán">
+                                    <option value="Cuautlancingo">
+
+                                    <option value="Cuayuca de Andrade">
+                                    <option value="Cuetzalan del Progreso">
+                                    <option value="Cuyoaco">
+                                    <option value="Chalchicomula de Sesma">
+                                    <option value="Chapulco">
+
+                                    <option value="Chiautla">
+                                    <option value="Chiautzingo">
+                                    <option value="Chiconcuautla">
+                                    <option value="Chichiquila">
+                                    <option value="Chietla">
+
+                                    </datalist>
+                                        </div>
                     <br>
                     <br>
                     <br>
@@ -239,6 +317,115 @@
     </div>
   </section>
 
+
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+      </div>
+      <br>
+
+      <input src="./../img/portfolio/button2.png" alt="plus" type="image" class="responsive" style="width: 52px; height: 52px;" onclick="elPapantatas2()"/>
+
+      <div>
+            <h2>Eventos A.S.E.</h2>
+      </div>
+
+
+
+
+
+
+      <div class="row">
+
+            <!-- Portfolio Item 1 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Educacion</a>
+                  </div>
+                </div>
+                <a href="https://www.auditoriapuebla.gob.mx/auditoria-para-ninos">
+                <img class="img-fluid " src="./../img/portfolio/unoDonJuan.PNG"  alt="auditoriaNinios"></a>
+              </div>
+            </div>
+    
+            <!-- Portfolio Item 2 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Salud</a>
+                  </div>
+                </div>
+                <a href="https://www.auditoriapuebla.gob.mx/images/2015_Profeti/Libro_Cuentas_Claras_para_web.pdf">
+                <img class="img-fluid " src="./../img/portfolio/dosDonJuan.PNG"  alt="LibroCuentasClaras"></a>
+              </div>
+            </div>
+    
+            <!-- Portfolio Item 3 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">S.S.</a>
+                  </div>
+                </div>
+                <a href="https://www.auditoriapuebla.gob.mx/auditoria-para-ninos/cineminuto">
+                <img class="img-fluid " src="./../img/portfolio/tresDonJuan.PNG"  alt="cineMinuto"></a>
+              </div>
+            </div>
+    
+            <!-- Portfolio Item 4 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">S.</a>
+                  </div>
+                </div>
+                <a href="https://www.auditoriapuebla.gob.mx/images/GLG/Libro_version_web.pdf">
+                <img class="img-fluid " src="./../img/portfolio/cuatroDonJuan.PNG"  alt="libroVersion"></a>
+              </div>
+            </div>
+    
+            <!-- Portfolio Item 5 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">J</a>
+                  </div>
+                </div>
+                <a href="https://www.auditoriapuebla.gob.mx/images/2018/revista_cuentas_claras_10.pdf">
+                <img class="img-fluid " src="./../img/portfolio/cincoDonJuan.PNG"  alt="libroVersionWEB"></a>
+              </div>
+            </div>
+    
+            <!-- Portfolio Item 6 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">C</a>
+                  </div>
+                </div>
+                <a href="https://www.auditoriapuebla.gob.mx/images/2019/ganadores_2019.pdf">
+                <img class="img-fluid " src="./../img/portfolio/seisDonJuan.PNG"  alt="Ganadores"></a>
+              </div>
+            </div>
+    
+          </div>
+          <!-- /.row -->
+
+          <div class="divider-custom">
+            </div>
+
+
+
+
+
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
@@ -300,27 +487,62 @@
 <script>
 
     var divsToHide = document.getElementsByClassName("img-fluid"); //divsToHide is an array
-    debugger;
-
-
-    // for(var i = 0; i < divsToHide.length; i++){
-    //     divsToHide[i].style.visibility = "hidden"; // or
-    //     divsToHide[i].style.display = "none"; // depending on what you're doing
-    // }
-
-        console.log(divsToHide);
+    var divsCutomer = document.getElementsByClassName("divider-custom");
+    var divsCutomerLine = document.getElementsByClassName("divider-custom-line");
 
     function elPapanatas(){
-        debugger;
+        // debugger;
         console.log("Que fue lo que paso: ");
-        for(var i = 1; i < divsToHide.length; i++){
+        for(var i = 1; i < 7; i++){
         divsToHide[i].style.visibility = "visible"; 
         divsToHide[i].style.display = "inline"; 
         }
+
+        for(var i = 0; i < 2; i++){
+            divsCutomer[i].style.visibility = "visible";
+            divsCutomer[i].style.display = "inline";
+
+            divsCutomerLine[i].style.visibility = "visible";
+            divsCutomerLine[i].style.display = "inline";
+        }
     }
-        for(var i = 1; i < divsToHide.length; i++){
+        for(var i = 1; i < 7; i++){
         divsToHide[i].style.visibility = "hidden"; // or
         divsToHide[i].style.display = "none"; // depending on what you're doing
+        }
+
+        for(var i = 0; i < 2; i++){
+        divsCutomer[i].style.visibility = "hidden";
+        divsCutomer[i].style.display = "none";
+
+        divsCutomerLine[i].style.visibility = "hidden";
+        divsCutomerLine[i].style.display = "none";
+        }
+
+    function elPapantatas2(){
+        // debugger;
+        console.log("Que fue lo que paso: ");
+        for(var i = 7; i < 13; i++){
+        divsToHide[i].style.visibility = "visible"; 
+        divsToHide[i].style.display = "inline"; 
+
+        // divsCutomer[i].style.visibility = "visible";
+        // divsCutomer[i].style.display = "inline";
+
+        // divsCutomerLine[i].style.visibility = "visible";
+        // divsCutomerLine[i].style.display = "inline";
+        }
+    }
+
+    for(var i = 7; i < 13; i++){
+        divsToHide[i].style.visibility = "hidden"; // or
+        divsToHide[i].style.display = "none"; // depending on what you're doing
+
+        // divsCutomer[i].style.visibility = "hidden";
+        // divsCutomer[i].style.display = "none";
+
+        // divsCutomerLine[i].style.visibility = "hidden";
+        // divsCutomerLine[i].style.display = "none";
         }
 
 
